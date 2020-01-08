@@ -1,5 +1,16 @@
+html {
+  height: 100%;
+}
+
+html, body, #root, .App, .App main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
 .App {
   text-align: center;
+  background-color: rgb(225, 234, 236);
 }
 
 .App-logo {
@@ -35,4 +46,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.MuiPaper-rounded{
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+  height: auto;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+  background-color: rgb(50, 131, 168);
+  color:white;
 }
