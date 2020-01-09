@@ -4,6 +4,7 @@ import LoginContainer from "./components/LoginContainer";
 import SignupContainer from "./components/SignupContainer";
 import NavbarContainer from "./components/NavbarContainer";
 import ConferencesListContainer from "./components/ConferencesListContainer";
+import ConferenceDetailsContainer from "./components/ConferenceDetailsContainer";
 import Footer from "./components/Footer";
 
 
@@ -19,7 +20,7 @@ class App extends React.Component {
           <Route path="/conference" exact component={ConferencesListContainer} />
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
-         
+          <Route path="/conference/:id" component={ConferenceDetailsContainer} />
         </Switch>
         <Footer />
       </div>

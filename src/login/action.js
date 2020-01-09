@@ -25,7 +25,7 @@ export const sendLogin = (email, password, id, name, push) => dispatch => {
         saveJWT(email, response.body.jwt, response.body.id, response.body.name)
       );
       if (push) {
-        push("/event");
+        push("/conference");
       }
     }).catch(console.error);
     

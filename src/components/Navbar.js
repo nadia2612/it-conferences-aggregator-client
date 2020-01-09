@@ -26,16 +26,11 @@ function Navbar(props) {
   return (
     <div>
       <div className="navbar">
-        <Link to="/event" className={classes.homeButton}>
+        <Link to="/conference" className={classes.homeButton}>
           <HomeIcon color="primary" fontSize="large" />
         </Link>
 
         {!props.user.name && <Link to="/login"> LOGIN</Link>}
-        {props.user.name && (
-          <p className="navbar-event">
-            <Link to="/event/create">CREATE NEW EVENT</Link>
-          </p>
-        )}
         {props.user.name && (
           <p className="navbar-username">LOGGED IN AS: {props.user.name}</p>
         )}
