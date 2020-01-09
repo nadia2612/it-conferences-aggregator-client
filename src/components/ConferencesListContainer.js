@@ -4,15 +4,19 @@ import { connect } from "react-redux";
 import ConferencesList from "./ConferencesList";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-
+import SearchBar from "./SearchBar";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
-    limit: 9
+    limit: 9,
+    search:"",
   };
 
   componentDidMount() {
-    this.props.loadConferences(this.state.offset, this.state.limit);
+    const { conferences } = this.props;
+    if (!conferences || conferences.length === 0) {
+      this.props.loadConferences(this.state.offset, this.state.limit, this.state.search);
+    }
   }
   paginationNext() {
     this.setState({ offset: this.state.offset + 9 }, () => {
@@ -27,6 +31,22 @@ class ConferencesListContainer extends React.Component {
         })
       : this.setState({ offset: 0 });
   }
+
+  onChange = event => {
+    this.setState({
+    search: event.target.value
+    });
+  };
+
+  onSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.search)
+    this.props.loadConferences(this.state.offset, this.state.limit, this.state.search)
+    this.setState({
+      search: ""
+    })
+  }
+
   render() {
     const loading = this.props.conferences == null;
 
@@ -35,11 +55,17 @@ class ConferencesListContainer extends React.Component {
         {loading ? (
           <p>Loading ...</p>
         ) : (
+          <>
+          <SearchBar
+           onSubmit={this.onSubmit}
+           onChange={this.onChange}
+           values={this.state}/>
           <ConferencesList
             conferences={this.props.conferences}
             paginationPrev={this.paginationPrev}
             paginationNext={this.paginationNext}
           />
+      </>
         )}
         <ButtonGroup
           style={{
