@@ -1,5 +1,6 @@
 import React from "react";
-
+import GoogleMaps from "./GoogleMaps";
+import ConferenceMarker from "./ConferenceMarker";
 import { formatDate } from "../util/date-util";
 
 import Typography from "@material-ui/core/Typography";
@@ -13,6 +14,7 @@ import LanguageIcon from "@material-ui/icons/Language";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ConferenceDetails(props) {
   const classes = useStyles();
-  console.log(props, "PROPS CONE");
+  
   return (
     <React.Fragment>
       <CssBaseline />
@@ -70,7 +72,9 @@ export default function ConferenceDetails(props) {
               />
             </Typography>
             <LanguageIcon color="secondary" />
-            <Typography>{props.conference.link}</Typography>
+            
+
+            <Typography><a href={`${props.conference.link}`}>{props.conference.link}</a></Typography>
             <LocationOnIcon color="secondary" />
 
             <Typography>
@@ -99,6 +103,11 @@ export default function ConferenceDetails(props) {
             </div>
           );
         })}
+          <GoogleMaps
+            center={props.conference.location}
+            zoom={5}
+            conferences={[props.conference]}
+          />
       </Container>
     </React.Fragment>
   );

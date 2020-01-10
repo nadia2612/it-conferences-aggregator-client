@@ -49,8 +49,7 @@ export default function ConferencesList(props) {
       <Container component="main">
         <CssBaseline />
         <div className={classes.conferences}>
-        {/* <Typography gutterBottom variant="h3" component="h3" >EVENTS</Typography> */}
-        </div>
+      
         <Grid container direction="row" justify="center" alignItems="center">
           {props.conferences.map(conference => {
             return (
@@ -78,6 +77,7 @@ export default function ConferencesList(props) {
           })}
           
         </Grid>
+          </div>
       </Container>
     </React.Fragment>
   );

@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import ConferenceDetails from "./ConferenceDetails";
-import CreateCommentFormContainer from "./CreateCommentFormContainer"
+import CreateCommentFormContainer from "./CreateCommentFormContainer";
 import { loadConference } from "../conferenceDetails/action";
 import Container from "@material-ui/core/Container";
 
 class ConferenceDetailsContainer extends React.Component {
-  state = { loading: true };
+  state = {
+    loading: true,
+  };
 
   componentDidMount() {
     this.props
@@ -27,9 +29,8 @@ class ConferenceDetailsContainer extends React.Component {
               conference={this.props.conference}
               history={this.props.history}
             />
-            <CreateCommentFormContainer/>
+            <CreateCommentFormContainer />
           </Container>
-          
         )}
       </>
     );

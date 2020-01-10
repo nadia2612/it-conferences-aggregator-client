@@ -5,17 +5,27 @@ import ConferencesList from "./ConferencesList";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import SearchBar from "./SearchBar";
+import GoogleMaps from "./GoogleMaps";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
     limit: 9,
-    search:"",
+    search: "",
+    center: {
+      lat: 52.3791316,
+      lng: 4.8980833
+    },
+    zoom: 5
   };
 
   componentDidMount() {
     const { conferences } = this.props;
     if (!conferences || conferences.length === 0) {
-      this.props.loadConferences(this.state.offset, this.state.limit, this.state.search);
+      this.props.loadConferences(
+        this.state.offset,
+        this.state.limit,
+        this.state.search
+      );
     }
   }
   paginationNext() {
@@ -34,18 +44,19 @@ class ConferencesListContainer extends React.Component {
 
   onChange = event => {
     this.setState({
-    search: event.target.value
+      search: event.target.value
     });
   };
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state.search)
-    this.props.loadConferences(this.state.offset, this.state.limit, this.state.search)
-    this.setState({
-      search: ""
-    })
-  }
+    console.log(this.state.search);
+    this.props.loadConferences(
+      this.state.offset,
+      this.state.limit,
+      this.state.search
+    );
+  };
 
   render() {
     const loading = this.props.conferences == null;
@@ -56,16 +67,22 @@ class ConferencesListContainer extends React.Component {
           <p>Loading ...</p>
         ) : (
           <>
-          <SearchBar
-           onSubmit={this.onSubmit}
-           onChange={this.onChange}
-           values={this.state}/>
-          <ConferencesList
-            conferences={this.props.conferences}
-            paginationPrev={this.paginationPrev}
-            paginationNext={this.paginationNext}
-          />
-      </>
+            <SearchBar
+              onSubmit={this.onSubmit}
+              onChange={this.onChange}
+              values={this.state}
+            />
+            <ConferencesList
+              conferences={this.props.conferences}
+              paginationPrev={this.paginationPrev}
+              paginationNext={this.paginationNext}
+            />
+            <GoogleMaps
+              conferences={this.props.conferences}
+              center={this.state.center}
+              zoom={this.state.zoom}
+            />
+          </>
         )}
         <ButtonGroup
           style={{
@@ -89,4 +106,6 @@ const mapStateToProps = state => {
     conferences: state.conferences
   };
 };
-export default connect(mapStateToProps, { loadConferences })(ConferencesListContainer);
+export default connect(mapStateToProps, { loadConferences })(
+  ConferencesListContainer
+);
