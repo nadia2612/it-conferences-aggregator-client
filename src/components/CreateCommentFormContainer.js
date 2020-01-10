@@ -7,7 +7,6 @@ import { loadConference } from "../conferenceDetails/action";
 class CreateCommentFormContainer extends React.Component {
   state = {
     text: ""
-    
   };
 
   onChange = event => {
@@ -20,22 +19,14 @@ class CreateCommentFormContainer extends React.Component {
     event.preventDefault();
     console.log(this.props, ":PROPS FROM CREATE Comment");
     this.props
-      .createComment(
-        this.props.user.jwt,
-        this.props.conference.id,
-        this.state
-      )
-
+      .createComment(this.props.user.jwt, this.props.conference.id, this.state)
       .then(() =>
         this.setState({
           text: ""
         })
       )
       .then(() => {
-        this.props.loadConference(
-          Number(this.props.conference.id),
-         
-        );
+        this.props.loadConference(Number(this.props.conference.id));
       });
   };
 
@@ -52,9 +43,9 @@ class CreateCommentFormContainer extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.currentUser,
-  conference:state.conference
+  conference: state.conference
 });
 
-export default connect(mapStateToProps, { createComment, loadConference})(
+export default connect(mapStateToProps, { createComment, loadConference })(
   CreateCommentFormContainer
 );

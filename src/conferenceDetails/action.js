@@ -1,5 +1,5 @@
 import request from "superagent";
-import baseUrl from "../util/baseURL"
+import baseUrl from "../util/baseURL";
 
 export const CONFERENCE_FETCHED = "CONFERENCE_FETCHED";
 
@@ -15,7 +15,3 @@ export const loadConference = id => dispatch => {
     })
     .catch(console.error);
 };
-
-
-
-

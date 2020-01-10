@@ -3,13 +3,13 @@ import Popover from "@material-ui/core/Popover";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 import { Link } from "react-router-dom";
+import { formatDate } from "../util/date-util";
 
 const useStyles = makeStyles(theme => ({
   marker: {
@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
     right: "12px"
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 345
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 }));
 
 export default function ConferenceMarker(props) {
@@ -57,33 +57,38 @@ export default function ConferenceMarker(props) {
           horizontal: "center"
         }}
       >
-
-<Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.conference.logo_url}
-          title={props.conference.name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.conference.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.conference.description.substring(0,50)}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Link>
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={props.conference.logo_url}
+              title={props.conference.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {props.conference.name}
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                {formatDate(props.conference.start_date)} - {formatDate(props.conference.end_date)}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p"  noWrap>
+                {props.conference.description}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            {/* <Link>
           Share
-        </Link>
-        <Link to={`/conference/${props.conference.id}`} size="small" color="primary">
-          Learn More
-        </Link>
-      </CardActions>
-    </Card>
-     
+        </Link> */}
+            <Link
+              to={`/conference/${props.conference.id}`}
+              size="small"
+              color="primary"
+            >
+              Learn More
+            </Link>
+          </CardActions>
+        </Card>
       </Popover>
       <LocationOnIcon
         onClick={openPopover}
@@ -92,4 +97,4 @@ export default function ConferenceMarker(props) {
       />
     </>
   );
-};
+}

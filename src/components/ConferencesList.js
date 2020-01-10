@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -70,6 +70,7 @@ export default function ConferencesList(props) {
                     <Typography variant="subtitle2" className={classes.date}>
                       {formatDate(conference.start_date)} - {formatDate(conference.end_date)}
                     </Typography>
+                      <FavoriteIcon color="secondary" />
                   </Paper>
                 </Grid>
               </div>

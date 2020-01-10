@@ -9,7 +9,7 @@ import GoogleMaps from "./GoogleMaps";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
-    limit: 9,
+    limit: 2,
     search: "",
     center: {
       lat: 52.3791316,
@@ -19,6 +19,7 @@ class ConferencesListContainer extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.state.limit,"LIMIT L", this.state.offset, "OffsetL")
     const { conferences } = this.props;
     if (!conferences || conferences.length === 0) {
       this.props.loadConferences(
@@ -29,14 +30,14 @@ class ConferencesListContainer extends React.Component {
     }
   }
   paginationNext() {
-    this.setState({ offset: this.state.offset + 9 }, () => {
+    this.setState({ offset: this.state.offset + 1 }, () => {
       this.props.loadConferences(this.state.offset, this.state.limit);
     });
   }
 
   paginationPrev() {
     this.state.offset > 0
-      ? this.setState({ offset: this.state.offset - 9 }, () => {
+      ? this.setState({ offset: this.state.offset - 1 }, () => {
           this.props.loadConferences(this.state.offset, this.state.limit);
         })
       : this.setState({ offset: 0 });
@@ -76,11 +77,6 @@ class ConferencesListContainer extends React.Component {
               conferences={this.props.conferences}
               paginationPrev={this.paginationPrev}
               paginationNext={this.paginationNext}
-            />
-            <GoogleMaps
-              conferences={this.props.conferences}
-              center={this.state.center}
-              zoom={this.state.zoom}
             />
           </>
         )}

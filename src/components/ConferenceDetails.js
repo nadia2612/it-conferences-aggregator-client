@@ -1,6 +1,5 @@
 import React from "react";
 import GoogleMaps from "./GoogleMaps";
-import ConferenceMarker from "./ConferenceMarker";
 import { formatDate } from "../util/date-util";
 
 import Typography from "@material-ui/core/Typography";
