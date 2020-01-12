@@ -1,7 +1,7 @@
 import React from "react";
 import GoogleMaps from "./GoogleMaps";
 import { formatDate } from "../util/date-util";
-
+import FavoriteComponent from "./FavoriteComponent"
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,7 +13,7 @@ import LanguageIcon from "@material-ui/icons/Language";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
-
+import baseUrl from "../util/baseURL"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -80,6 +80,9 @@ export default function ConferenceDetails(props) {
               {props.conference.location.city},
               {props.conference.location.country}
             </Typography>
+
+            <a href={`${baseUrl}/conference/${props.conference.id}/ics`} target="_blank" rel="noopener noreferrer">Add to my calendar</a>
+            <FavoriteComponent addLike={props.addLike} user={props.user} deleteLike={props.deleteLike} conference={props.conference}/>
           </Paper>
         </div>
         {props.conference.comments.map(comment => {

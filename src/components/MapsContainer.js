@@ -5,8 +5,6 @@ import GoogleMaps from "./GoogleMaps";
 
 class MapsContainer extends React.Component {
   state = {
-    offset: 0,
-    limit: 999,
     search: "",
     center: {
       lat: 52.3791316,
@@ -16,19 +14,8 @@ class MapsContainer extends React.Component {
   };
 
   componentDidMount() {
-    const { conferences } = this.props;
-    console.log(this.state.limit,"LIMIT M", this.state.offset, "OffsetM")
-    if (!conferences || conferences.length === 0) {
-      this.props.loadConferences(
-        this.state.offset,
-        this.state.limit,
-        this.state.search
-      );
-    }
+    this.props.loadConferences({ search: this.state.search });
   }
- 
-
-  
 
   render() {
     const loading = this.props.conferences == null;
@@ -38,14 +25,11 @@ class MapsContainer extends React.Component {
         {loading ? (
           <p>Loading ...</p>
         ) : (
-        
-            
-            <GoogleMaps
-              conferences={this.props.conferences}
-              center={this.state.center}
-              zoom={this.state.zoom}
-            />
-        
+          <GoogleMaps
+            conferences={this.props.conferences}
+            center={this.state.center}
+            zoom={this.state.zoom}
+          />
         )}
       </>
     );
@@ -57,6 +41,4 @@ const mapStateToProps = state => {
     conferences: state.conferences
   };
 };
-export default connect(mapStateToProps, { loadConferences })(
-  MapsContainer
-);
+export default connect(mapStateToProps, { loadConferences })(MapsContainer);

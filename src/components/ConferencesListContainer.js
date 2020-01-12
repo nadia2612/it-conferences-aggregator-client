@@ -5,11 +5,10 @@ import ConferencesList from "./ConferencesList";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import SearchBar from "./SearchBar";
-import GoogleMaps from "./GoogleMaps";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
-    limit: 2,
+    limit: 3,
     search: "",
     center: {
       lat: 52.3791316,
@@ -18,27 +17,27 @@ class ConferencesListContainer extends React.Component {
     zoom: 5
   };
 
+  reLoadConferences() {
+    const { offset, limit, search } = this.state;
+    this.props.loadConferences({ offset, limit, search });
+  }
+
   componentDidMount() {
-    console.log(this.state.limit,"LIMIT L", this.state.offset, "OffsetL")
     const { conferences } = this.props;
     if (!conferences || conferences.length === 0) {
-      this.props.loadConferences(
-        this.state.offset,
-        this.state.limit,
-        this.state.search
-      );
+      this.reLoadConferences();
     }
   }
   paginationNext() {
-    this.setState({ offset: this.state.offset + 1 }, () => {
-      this.props.loadConferences(this.state.offset, this.state.limit);
+    this.setState({ offset: this.state.offset + this.state.limit }, () => {
+      this.reLoadConferences();
     });
   }
 
   paginationPrev() {
     this.state.offset > 0
-      ? this.setState({ offset: this.state.offset - 1 }, () => {
-          this.props.loadConferences(this.state.offset, this.state.limit);
+      ? this.setState({ offset: this.state.offset - this.state.limit }, () => {
+        this.reLoadConferences();
         })
       : this.setState({ offset: 0 });
   }
@@ -51,12 +50,7 @@ class ConferencesListContainer extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state.search);
-    this.props.loadConferences(
-      this.state.offset,
-      this.state.limit,
-      this.state.search
-    );
+    this.reLoadConferences();
   };
 
   render() {
@@ -77,6 +71,7 @@ class ConferencesListContainer extends React.Component {
               conferences={this.props.conferences}
               paginationPrev={this.paginationPrev}
               paginationNext={this.paginationNext}
+              addLike={this.addLike}
             />
           </>
         )}
@@ -99,9 +94,11 @@ class ConferencesListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    user: state.currentUser,
     conferences: state.conferences
   };
 };
-export default connect(mapStateToProps, { loadConferences })(
-  ConferencesListContainer
-);
+
+export default connect(mapStateToProps, {
+  loadConferences
+})(ConferencesListContainer);

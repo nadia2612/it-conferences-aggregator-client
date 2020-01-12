@@ -40,33 +40,37 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ConferencesList(props) {
+export default function FavoritesList(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
       <Container component="main">
         <CssBaseline />
-        <div className={classes.conferences}>
+        <div className={classes.favorites}>
+          <Typography variant="h5" component="h3">
+            My favorites
+          </Typography>
           <Grid container direction="row" justify="center" alignItems="center">
-            {props.conferences.map(conference => {
+            {props.favorites.map(conference => {
               return (
-                <div key={conference.id}>
+                <div key={conference.conference.id}>
                   <Grid item xs={12}>
                     <Paper className={classes.paper}>
                       <CardMedia
                         component="img"
-                        alt={conference.name}
+                        alt={conference.conference.name}
                         height="210"
-                        image={conference.logo_url}
-                        title={conference.name}
+                        image={conference.conference.logo_url}
+                        title={conference.conference.name}
                       />
                       <Typography gutterBottom variant="h5" component="h3">
-                        <Link to={`/conference/${conference.id}`}>
-                          {conference.name}
+                        <Link to={`/conference/${conference.conference.id}`}>
+                          {conference.conference.name}
                         </Link>
                       </Typography>
                       <Typography variant="subtitle2" className={classes.date}>
-                        {formatDate(conference.start_date)} - {formatDate(conference.end_date)}
+                        {formatDate(conference.conference.start_date)} -{" "}
+                        {formatDate(conference.conference.end_date)}
                       </Typography>
                     </Paper>
                   </Grid>

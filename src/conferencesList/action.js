@@ -8,13 +8,9 @@ const conferencesFetched = conferences => ({
   payload: conferences
 });
 
-export const loadConferences = (offset, limit, search) => (
-  dispatch,
-  getState
-) => {
-  request(
-    `${baseUrl}/conference?offset=${offset}&limit=${limit}&search=${search}`
-  )
+export const loadConferences = query => dispatch => {
+  request(`${baseUrl}/conference`)
+    .query(query)
     .then(response => {
       dispatch(conferencesFetched(response.body));
     })

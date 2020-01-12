@@ -8,8 +8,10 @@ const conferenceFetched = conference => ({
   payload: conference
 });
 
-export const loadConference = id => dispatch => {
+export const loadConference = id => (dispatch, getState) => {
+  const { jwt } = getState().currentUser;
   return request(`${baseUrl}/conference/${id}`)
+    .query(jwt ? { jwt } : {})
     .then(response => {
       dispatch(conferenceFetched(response.body));
     })
