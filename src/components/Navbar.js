@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import "../navbarStyles.css";
 import { makeStyles } from "@material-ui/core/styles";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import Chip from "@material-ui/core/Chip";
+import FaceIcon from "@material-ui/icons/Face";
+import DoneIcon from "@material-ui/icons/Done";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Fade from "@material-ui/core/Fade";
 
 const useStyles = makeStyles(theme => ({
   homeButton: {
@@ -10,8 +16,17 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     left: 0,
     top: "3px"
+  },
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    "& > *": {
+      margin: theme.spacing(0.5)
+    }
   }
 }));
+
 function HomeIcon(props) {
   return (
     <SvgIcon {...props}>
@@ -23,27 +38,52 @@ function HomeIcon(props) {
 function Navbar(props) {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div>
       <div className="navbar">
-        <Link to="/event" className={classes.homeButton}>
+        <Link to="/conference" className={classes.homeButton}>
           <HomeIcon color="primary" fontSize="large" />
         </Link>
 
         {!props.user.name && <Link to="/login"> LOGIN</Link>}
         {props.user.name && (
-          <p className="navbar-event">
-            <Link to="/event/create">CREATE NEW EVENT</Link>
-          </p>
-        )}
-        {props.user.name && (
-          <p className="navbar-username">LOGGED IN AS: {props.user.name}</p>
-        )}
-
-        {props.user.name && (
-          <div className="navbar-logout" onClick={props.onClick}>
-            <Link to="/">LOGOUT</Link>
-          </div>
+          <>
+            <Chip
+              size="small"
+              icon={<FaceIcon />}
+              label={props.user.name}
+              clickable
+              color="primary"
+              onClick={handleClick}
+              deleteIcon={<DoneIcon />}
+            />
+            <Menu
+              id="fade-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+              <MenuItem onClick={handleClose}>
+                <Link to="/favorite">My favorites</Link>
+              </MenuItem>
+              <MenuItem onClick={props.onClick}>
+                <Link to="/">Logout</Link>
+              </MenuItem>
+            </Menu>
+          </>
         )}
       </div>
     </div>

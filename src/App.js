@@ -1,15 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import LoginContainer from "./components/LoginContainer";
 import SignupContainer from "./components/SignupContainer";
 import NavbarContainer from "./components/NavbarContainer";
-// import EventsListContainer from "./components/EventsListContainer";
+import MainContainer from "./components/MainContainer";
+import ConferenceDetailsContainer from "./components/ConferenceDetailsContainer";
 import Footer from "./components/Footer";
-// import EventDetailsContainer from "./components/EventDetailsContainer";
-// import CreateEventFormContainer from "./components/CreateEventFormContainer";
-// import TicketDetailsContainer from "./components/TicketDetailsContainer";
-// import CreateTicketFormContainer from "./components/CreateTicketFormContainer";
-// // import CreateCommentFormContainer from "./components/CreateCommentFormContainer"
+import FavoritesListContainer from "./components/FavoritesListContainer";
 
 import "./App.css";
 import { connect } from "react-redux";
@@ -20,19 +17,15 @@ class App extends React.Component {
       <div className="App">
         <NavbarContainer />
         <Switch>
-          {/* <Route path="/event" exact component={EventsListContainer} /> */}
+          <Route path="/conference" exact component={MainContainer} />
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
-          {/* <Route path="/event/create" component={CreateEventFormContainer} />
           <Route
-            path="/event/:eventId/ticket/create"
-            component={CreateTicketFormContainer}
+            path="/conference/:id"
+            component={ConferenceDetailsContainer}
           />
-          <Route
-            path="/event/:eventId/ticket/:id"
-            component={TicketDetailsContainer}
-          />
-          <Route path="/event/:id" component={EventDetailsContainer} /> */}
+          <Route path="/favorite" component={FavoritesListContainer} />
+          <Redirect from="/" to="/conference" />
         </Switch>
         <Footer />
       </div>
