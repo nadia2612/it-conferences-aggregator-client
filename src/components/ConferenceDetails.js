@@ -31,6 +31,16 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 900,
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2)
+  },
+  image: {
+   
+    display: "flex",
+    margin:"auto",
+    boxSizing: "inherit",
+    flexGrow:1
+    // position:"absolute",
+    //  maxWidth: "75%",
+    // maxHeight: "50%"
   }
 }));
 
@@ -48,7 +58,7 @@ export default function ConferenceDetails(props) {
           >
             <Typography
               variant="h2"
-              style={{ textTransform: " uppercase" }}
+              style={{ textTransform: " uppercase" , textDecoration: "underline", textDecorationColor:"#e0dcdc"}}
               gutterBottom
             >
               {props.conference.name}
@@ -65,7 +75,7 @@ export default function ConferenceDetails(props) {
 
             <Typography>Price:{props.conference.price}</Typography>
             <Typography>
-              <img
+              <img className={classes.image}
                 src={props.conference.logo_url}
                 alt={props.conference.name}
               />
