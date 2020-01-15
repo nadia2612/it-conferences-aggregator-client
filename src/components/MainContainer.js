@@ -18,6 +18,7 @@ export default function MainContainer() {
     <>
       <FormGroup>
         <FormControlLabel
+          style={{ backgroundColor: "#b0b1b1", marginRight: "0px" }}
           control={
             <Switch
               checked={state.checked}

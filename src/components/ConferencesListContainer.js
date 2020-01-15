@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
-    limit: 3,
+    limit: 9,
     search: "",
     center: {
       lat: 52.3791316,
@@ -23,11 +23,9 @@ class ConferencesListContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { conferences } = this.props;
-    if (!conferences || conferences.length === 0) {
-      this.reLoadConferences();
-    }
+    this.reLoadConferences();
   }
+
   paginationNext() {
     this.setState({ offset: this.state.offset + this.state.limit }, () => {
       this.reLoadConferences();
@@ -37,7 +35,7 @@ class ConferencesListContainer extends React.Component {
   paginationPrev() {
     this.state.offset > 0
       ? this.setState({ offset: this.state.offset - this.state.limit }, () => {
-        this.reLoadConferences();
+          this.reLoadConferences();
         })
       : this.setState({ offset: 0 });
   }
