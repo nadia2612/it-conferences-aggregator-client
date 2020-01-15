@@ -59,7 +59,7 @@ export default function FavoritesList(props) {
                       <CardMedia
                         component="img"
                         alt={conference.conference.name}
-                        height="210"
+                        height="250"
                         image={conference.conference.logo_url}
                         title={conference.conference.name}
                       />

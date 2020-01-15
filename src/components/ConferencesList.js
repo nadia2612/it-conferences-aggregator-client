@@ -15,24 +15,24 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(2),
-    width: 350,
-    height: 340,
+    width: 550,
+    height: 380,
     margin: "1rem",
-    maxWidth: 350,
+    maxWidth: 400,
     display: "inline-grid",
     textTransform: " uppercase",
     marginBottom: "0px"
   },
   image: {
     margin: "1px",
-    display: "block",
+    display: "flex",
     width: 220,
     height: 400,
-    maxWidth: "50%",
-    maxHeight: "50%"
+    maxWidth: "70%",
+    maxHeight: "70%"
   },
   date: {
-    color: "#3f51b5",
+    color: "black",
     margin: "1px"
   },
   events: {
@@ -56,17 +56,21 @@ export default function ConferencesList(props) {
                       <CardMedia
                         component="img"
                         alt={conference.name}
-                        height="210"
+                        height="270"
                         image={conference.logo_url}
                         title={conference.name}
                       />
                       <Typography gutterBottom variant="h5" component="h3">
-                        <Link to={`/conference/${conference.id}`}>
-                          {conference.name}
+                        <Link
+                          style={{ color: "black" }}
+                          to={`/conference/${conference.id}`}
+                        >
+                          <b>{conference.name}</b>
                         </Link>
                       </Typography>
                       <Typography variant="subtitle2" className={classes.date}>
-                        {formatDate(conference.start_date)} - {formatDate(conference.end_date)}
+                        {formatDate(conference.start_date)} -{" "}
+                        {formatDate(conference.end_date)}
                       </Typography>
                     </Paper>
                   </Grid>

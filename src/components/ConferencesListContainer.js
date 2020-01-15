@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ConferencesList from "./ConferencesList";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import SearchBar from "./SearchBar";
+import SearchBarr from "./SearchBar";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,
@@ -40,15 +40,20 @@ class ConferencesListContainer extends React.Component {
       : this.setState({ offset: 0 });
   }
 
-  onChange = event => {
+  onChange = value => {
     this.setState({
-      search: event.target.value
+      search: value
     });
   };
 
-  onSubmit = event => {
-    event.preventDefault();
+  onRequestSearch = () => {
     this.reLoadConferences();
+  };
+
+  onCancelSearch = () => {
+    this.setState({
+      search: ""
+    });
   };
 
   render() {
@@ -60,10 +65,11 @@ class ConferencesListContainer extends React.Component {
           <p>Loading ...</p>
         ) : (
           <>
-            <SearchBar
-              onSubmit={this.onSubmit}
+            <SearchBarr
+              onRequestSearch={this.onRequestSearch}
               onChange={this.onChange}
               values={this.state}
+              onCancelSearch={this.onCancelSearch}
             />
             <ConferencesList
               conferences={this.props.conferences}
@@ -77,7 +83,8 @@ class ConferencesListContainer extends React.Component {
           style={{
             boxShadow: "none",
             margin: "20px",
-            justifyContent: "center"
+            justifyContent: "center",
+            backgroundColor: "white"
           }}
           variant="contained"
           aria-label="contained primary button group"

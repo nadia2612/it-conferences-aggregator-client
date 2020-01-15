@@ -33,16 +33,13 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   image: {
-   
     display: "flex",
     margin:"auto",
     boxSizing: "inherit",
     flexGrow:1
-    // position:"absolute",
-    //  maxWidth: "75%",
-    // maxHeight: "50%"
   }
 }));
+
 
 export default function ConferenceDetails(props) {
   const classes = useStyles();
@@ -116,6 +113,7 @@ export default function ConferenceDetails(props) {
           );
         })}
           <GoogleMaps
+          style={props.style}
             center={props.conference.location}
             zoom={5}
             conferences={[props.conference]}
