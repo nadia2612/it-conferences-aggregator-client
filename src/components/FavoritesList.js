@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
   },
   events: {
     paddingTop: "28px"
+  },
+  header:{
+    margin:"15px"
   }
 }));
 
@@ -47,8 +50,8 @@ export default function FavoritesList(props) {
       <Container component="main">
         <CssBaseline />
         <div className={classes.favorites}>
-          <Typography variant="h5" component="h3">
-            My favorites
+          <Typography className={classes.header} variant="h3">
+            My favorites:
           </Typography>
           <Grid container direction="row" justify="center" alignItems="center">
             {props.favorites.map(conference => {

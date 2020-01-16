@@ -19,20 +19,20 @@ class MapsContainer extends React.Component {
   style = {
     height: "700px",
     width: "100%",
-    marginTop: "20px",
-    margin: "10px",
+    marginTop: "32px",
+    marginBottom: "32px",
     display: "flex",
     minWidth: "fit-content",
     flexWrap: "wrap",
     flexDirecton: "column",
-    borderStyle: "solid",
+    borderStyle: "groove",
     borderRadius: "4px"
   };
   render() {
     const loading = this.props.conferences == null;
 
     return (
-      <div style={{ marginTop: "30px" }}>
+      <div>
         {loading ? (
           <p>Loading ...</p>
         ) : (

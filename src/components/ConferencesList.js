@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     width: 220,
     height: 400,
-    maxWidth: "70%",
-    maxHeight: "70%"
+    maxWidth: "50%",
+    maxHeight: "50%"
   },
   date: {
     color: "black",

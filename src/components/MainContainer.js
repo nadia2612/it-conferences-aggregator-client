@@ -19,7 +19,8 @@ export default function MainContainer() {
       <FormGroup style={{ alignContent: "fit-content" }}>
         <FormControlLabel
           style={{
-            backgroundColor: "#b0b1b1",
+            color:"white",
+            backgroundColor:"rgb(154, 193, 195)",
             marginRight: "0px",
             display: " list-item"
           }}

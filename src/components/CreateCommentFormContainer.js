@@ -17,7 +17,6 @@ class CreateCommentFormContainer extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.props, ":PROPS FROM CREATE Comment");
     this.props
       .createComment(this.props.user.jwt, this.props.conference.id, this.state)
       .then(() =>

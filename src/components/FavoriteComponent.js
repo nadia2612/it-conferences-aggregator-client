@@ -8,12 +8,10 @@ export default function FavoriteComponent(props) {
   return (
     <>
       {props.conference.favoriteId ? (
-        <FavoriteIcon color="disabled" onClick={props.deleteLike} />
+        <FavoriteIcon color="secondary"  onClick={props.deleteLike} />
       ) : (
-        <FavoriteIcon color="secondary"   onClick={props.addLike} />
+        <FavoriteIcon color="disabled"  onClick={props.addLike} />
       )}
     </>
   );
 }
-
-//style={{ color: "green" }}

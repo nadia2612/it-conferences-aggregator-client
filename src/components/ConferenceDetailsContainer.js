@@ -24,7 +24,7 @@ class ConferenceDetailsContainer extends React.Component {
         this.props.loadConference(Number(this.props.match.params.id));
       });
   };
-  
+
   deleteLike = event => {
     event.preventDefault();
     this.props
@@ -33,7 +33,14 @@ class ConferenceDetailsContainer extends React.Component {
         this.props.loadConference(Number(this.props.match.params.id));
       });
   };
-  style={ height: "400px", width: "100%", margin:"10px", display:"flex"}
+  style = {
+    height: "400px",
+    width: "100%",
+    marginTop: "0px",
+    marginBottom: "0px",
+    display: "flex",
+    flexWrap: "wrap"
+  };
 
   render() {
     const { loading } = this.state;
@@ -45,7 +52,7 @@ class ConferenceDetailsContainer extends React.Component {
         ) : (
           <Container component="main">
             <ConferenceDetails
-            style={this.style}
+              style={this.style}
               conference={this.props.conference}
               history={this.props.history}
               addLike={this.addLike}
