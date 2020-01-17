@@ -1,12 +1,13 @@
 .navbar {
   
-  background-color: #b0b1b1;
+  background-color: black;
   padding: 2% 0;
   padding-top: 2%;
   padding-right: 3%;
   padding-left: 3%;
   text-align: right;
   display: block;
+  line-height:1
 }
 a:-webkit-any-link {
   color: #3f51b5;
@@ -16,8 +17,6 @@ a:-webkit-any-link {
 }
 .navbar-username {
   display: inline;
-  /* position: absolute; 
- right: initial;  */
   margin: auto 1%;
 }
 .navbar-event {
@@ -25,13 +24,11 @@ a:-webkit-any-link {
   color: #3f51b5;
   cursor: pointer;
   text-decoration: unset;
-  /* position: absolute; 
-  right: initial; */
   margin: auto 1%;
 }
 .navbar-username {
   margin-bottom: 40px;
-  color: #3f51b5;
+  color: white;
   cursor: pointer;
   text-decoration: unset;
 }

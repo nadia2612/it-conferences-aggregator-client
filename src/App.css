@@ -2,7 +2,11 @@ html {
   height: 100%;
 }
 
-html, body, #root, .App, .App main {
+html,
+body,
+#root,
+.App,
+.App main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -11,17 +15,6 @@ html, body, #root, .App, .App main {
 .App {
   text-align: center;
   background-color: rgb(255, 255, 255);
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -39,21 +32,39 @@ html, body, #root, .App, .App main {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.MuiPaper-rounded{
-  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+.MuiPaper-rounded {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   height: auto;
 }
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained {
   background-color: rgb(50, 131, 168);
-  color:white;
+  color: white;
 }
+
+.MuiFormGroup-root {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.MuiContainer-root.MuiContainer-maxWidthMd {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.MuiPaper-root.makeStyles-paper-227.MuiPaper-elevation1.MuiPaper-rounded{
+  border-style: solid;
+}
+
+.MuiContainer-root.MuiContainer-maxWidthLg{
+max-width: 1400px;
+}
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained{
+  color:white;
+  background-color:rgb(154, 193, 195);
+} 

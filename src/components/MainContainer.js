@@ -16,8 +16,14 @@ export default function MainContainer() {
 
   return (
     <>
-      <FormGroup>
+      <FormGroup style={{ alignContent: "fit-content" }}>
         <FormControlLabel
+          style={{
+            color:"white",
+            backgroundColor:"rgb(154, 193, 195)",
+            marginRight: "0px",
+            display: " list-item"
+          }}
           control={
             <Switch
               checked={state.checked}

@@ -9,8 +9,8 @@ export default function GoogleMaps(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
-        <div style={{ height: "400px", width: "100%", margin:"10px"}}>
+      <Container maxWidth="xl">
+        <div style={props.style}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"

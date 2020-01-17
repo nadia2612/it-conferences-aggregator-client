@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "1%",
     position: "absolute",
     left: 0,
-    top: "3px"
+    top: "3px",
+    color: "white"
   },
   root: {
     display: "flex",
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 function HomeIcon(props) {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon {...props} style={{ color: "white" }}>
       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
     </SvgIcon>
   );
@@ -56,7 +57,12 @@ function Navbar(props) {
           <HomeIcon color="primary" fontSize="large" />
         </Link>
 
-        {!props.user.name && <Link to="/login"> LOGIN</Link>}
+        {!props.user.name && (
+          <Link style={{ color: "white" }} to="/login">
+            {" "}
+            LOGIN
+          </Link>
+        )}
         {props.user.name && (
           <>
             <Chip
@@ -66,7 +72,11 @@ function Navbar(props) {
               clickable
               color="primary"
               onClick={handleClick}
-              deleteIcon={<DoneIcon />}
+              style={{
+                backgroundColor: "white",
+                color: "black",
+                minWidth: "100px"
+              }}
             />
             <Menu
               id="fade-menu"
@@ -75,12 +85,17 @@ function Navbar(props) {
               open={open}
               onClose={handleClose}
               TransitionComponent={Fade}
+              style={{ color: "black" }}
             >
               <MenuItem onClick={handleClose}>
-                <Link to="/favorite">My favorites</Link>
+                <Link style={{ color: "black" }} to="/favorite">
+                  My favorites
+                </Link>
               </MenuItem>
               <MenuItem onClick={props.onClick}>
-                <Link to="/">Logout</Link>
+                <Link style={{ color: "black" }} to="/">
+                  Logout
+                </Link>
               </MenuItem>
             </Menu>
           </>

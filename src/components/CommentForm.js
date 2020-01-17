@@ -9,17 +9,21 @@ import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles(theme => ({
   form: {
+    dispaly:"flex",
     width: "100%",
     marginTop: theme.spacing(3),
     justifyContent:"center",
 
   },
   submit: {
+    dispaly:"flex",
+    maxWidth:"50%",
     width:"100%",
     margin: theme.spacing(3, 0, 2),
     textDecoration: "none"
   },
   textField: {
+    marginBottom:"20px",
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 200
@@ -30,7 +34,7 @@ export default function CommentForm(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Container component="main" maxWidth="lg">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <div className={classes.paper}>
           <form className={classes.form} onSubmit={props.onSubmit}>
@@ -47,7 +51,7 @@ export default function CommentForm(props) {
                   value={props.values.text}
                   onChange={props.onChange}
                 />
-              </Grid>
+             
               <Button
                 type="submit"
                 size="small"
@@ -58,6 +62,7 @@ export default function CommentForm(props) {
               >
                Add comment
               </Button>
+              </Grid>
             </Grid>
           </form>
         </div>

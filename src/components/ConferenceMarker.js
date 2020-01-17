@@ -77,9 +77,6 @@ export default function ConferenceMarker(props) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            {/* <Link>
-          Share
-        </Link> */}
             <Link
               to={`/conference/${props.conference.id}`}
               size="small"

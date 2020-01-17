@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{ color: "white" }} align="center">
       {"Copyright © "}
       {new Date().getFullYear()}
       {"."}
@@ -15,8 +15,9 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: "#b0b1b1",
-    padding: theme.spacing(1)
+    backgroundColor: "black",
+    padding: theme.spacing(1),
+    color: "white"
   }
 }));
 
@@ -28,12 +29,7 @@ export default function Footer() {
       <CssBaseline />
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom></Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
+        <Typography variant="subtitle1" align="center" component="p">
           Made by Nadia at Codaisseur #33
         </Typography>
         <Copyright />
