@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import ConferenceMarker from "./ConferenceMarker";
+import ConferenceMarker from "../conferenceMarker/ConferenceMarker";
 
 export default function GoogleMaps(props) {
   return (
@@ -13,7 +13,7 @@ export default function GoogleMaps(props) {
         <div style={props.style}>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"
+              key: process.env.REACT_APP_GOOGLE_API_KEY
             }}
             yesIWantToUseGoogleMapApiInternals
             defaultCenter={props.center}

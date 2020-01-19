@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createComment } from "../commentDetails/action";
+import { createComment } from "../../commentDetails/action";
 import CommentForm from "./CommentForm";
-import { loadConference } from "../conferenceDetails/action";
+import { loadConference } from "../../conferenceDetails/action";
 
 class CreateCommentFormContainer extends React.Component {
   state = {

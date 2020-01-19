@@ -1,7 +1,9 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from './style'
+
+
 
 function Copyright() {
   return (
@@ -13,13 +15,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
-  footer: {
-    backgroundColor: "black",
-    padding: theme.spacing(1),
-    color: "white"
-  }
-}));
+
 
 export default function Footer() {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
-import { logOut } from "../login/action";
+import { logOut } from "../../login/action";
 
 class NavbarContainer extends Component {
   onClick = () => {

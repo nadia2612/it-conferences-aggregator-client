@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import LoginContainer from "./components/LoginContainer";
-import SignupContainer from "./components/SignupContainer";
-import NavbarContainer from "./components/NavbarContainer";
+import LoginContainer from "./components/login/LoginContainer";
+import SignupContainer from "./components/signup/SignupContainer";
+import NavbarContainer from "./components/navbar/NavbarContainer";
 import MainContainer from "./components/MainContainer";
-import ConferenceDetailsContainer from "./components/ConferenceDetailsContainer";
-import Footer from "./components/Footer";
-import FavoritesListContainer from "./components/FavoritesListContainer";
+import ConferenceDetailsContainer from "./components/conferenceDetails/ConferenceDetailsContainer";
+import Footer from "./components/footer/Footer";
+import FavoritesListContainer from "./components/favoriteList/FavoritesListContainer";
 
 import "./App.css";
 

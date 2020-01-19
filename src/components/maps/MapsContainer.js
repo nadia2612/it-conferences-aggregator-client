@@ -1,5 +1,5 @@
 import React from "react";
-import { loadConferences } from "../conferencesList/action";
+import { loadConferences } from "../../conferencesList/action";
 import { connect } from "react-redux";
 import GoogleMaps from "./GoogleMaps";
 

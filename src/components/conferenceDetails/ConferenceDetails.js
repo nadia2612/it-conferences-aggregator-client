@@ -1,88 +1,21 @@
 import React from "react";
-import GoogleMaps from "./GoogleMaps";
-import { formatDate } from "../util/date-util";
+import GoogleMaps from "../maps/GoogleMaps";
+import { formatDate } from "../../util/date-util";
 import FavoriteComponent from "./FavoriteComponent";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import LanguageIcon from "@material-ui/icons/Language";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
-import baseUrl from "../util/baseURL";
+import Avatar from '@material-ui/core/Avatar';
+import baseUrl from "../../util/baseURL";
 import Button from "@material-ui/core/Button";
+import { useStyles } from './style'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: "100%",
-    marginTop: "25px",
-    marginBottom: "25px",
-    paddingBottom: "10px"
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    width: "40%",
-    textDecoration: "none",
-    color: "white"
-  },
-  paper: {
-    maxWidth: 900,
-    margin: `${theme.spacing(2)}px auto`
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    boxSizing: "inherit",
-    marginLeft: "12px",
-    flexGrow: 1,
-    borderRadius: "4px"
-  },
-  noPadding: {
-    "& :first-child": {
-      paddingLeft: "0px",
-      paddingRight: "0px"
-    }
-  },
-  paperWrap: {
-    borderRadius: "6px"
-  },
-  topographyHeader: {
-    paddingTop: "30px",
-    textTransform: " uppercase",
-    textDecoration: "underline",
-    textDecorationColor: "#656765",
-    color: "#286363"
-  },
-  iconGrid: {
-    marginTop: "3px"
-  },
-  icon: {
-    color: "#286363",
-    fontSize: "2rem"
-  },
-  textGrid: {
-    textAlign: "left"
-  },
-  submitAdd: {
-    margin: "14px",
-    display: "inlineFlex",
-    flexGrow: 1,
-    borderRadius: "4px",
-    widht: "25%",
-    maxWight: "25%"
-  },
-  conteiner: {
-    paddingBottom: "20px"
-  },
-  text: {
-    color: "#286363"
-  }
-}));
 
 export default function ConferenceDetails(props) {
   const classes = useStyles();
@@ -175,7 +108,7 @@ export default function ConferenceDetails(props) {
               </Grid>
             </Grid>
             <Grid container spacing={3}>
-              <Typography style={{ margin: "25px", textAlign: "left" }}>
+              <Typography className={classes.description} >
                 <b className={classes.text}>Description:</b>
                 <br />
                 <br />
@@ -188,7 +121,7 @@ export default function ConferenceDetails(props) {
               color="primary"
               className={classes.submitAdd}
             >
-              <DateRangeIcon style={{ color: "#286363"}} color="secondary" />
+              <DateRangeIcon className={classes.dateIcon}/>
               Add to my calendar
             </Button>
             <Button

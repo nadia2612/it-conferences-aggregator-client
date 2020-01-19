@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import ConferenceDetails from "./ConferenceDetails";
-import CreateCommentFormContainer from "./CreateCommentFormContainer";
-import { loadConference } from "../conferenceDetails/action";
+import CreateCommentFormContainer from "../commentForm/CreateCommentFormContainer";
+import { loadConference } from "../../conferenceDetails/action";
 import Container from "@material-ui/core/Container";
-import { postLike, deleteLike } from "../favorite/action";
+import { postLike, deleteLike } from "../../favorite/action";
 
 class ConferenceDetailsContainer extends React.Component {
   state = {
