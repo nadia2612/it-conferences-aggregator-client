@@ -1,5 +1,4 @@
 .navbar {
-  
   background-color: black;
   padding: 2% 0;
   padding-top: 2%;
@@ -21,7 +20,7 @@ a:-webkit-any-link {
 }
 .navbar-event {
   display: inline;
-  color: #3f51b5;
+  color: #80818a;
   cursor: pointer;
   text-decoration: unset;
   margin: auto 1%;

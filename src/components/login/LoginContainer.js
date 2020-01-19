@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Login from "./Login";
 import { connect } from "react-redux";
-import { sendLogin } from "../login/action";
+import { sendLogin } from "../../login/action";
 
 
 class LoginContainer extends Component {

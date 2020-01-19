@@ -1,10 +1,10 @@
 import React from "react";
-import { loadConferences } from "../conferencesList/action";
+import { loadConferences } from "../../conferencesList/action";
 import { connect } from "react-redux";
 import ConferencesList from "./ConferencesList";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import SearchBarr from "./SearchBar";
+import SearchBarr from "../searchBar/SearchBar";
 class ConferencesListContainer extends React.Component {
   state = {
     offset: 0,

@@ -2,8 +2,8 @@ import React from "react";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-import MapsContainer from "./MapsContainer";
-import ConferenceListContainer from "./ConferencesListContainer";
+import MapsContainer from "./maps/MapsContainer";
+import ConferenceListContainer from "./conferencesList/ConferencesListContainer";
 
 export default function MainContainer() {
   const [state, setState] = React.useState({

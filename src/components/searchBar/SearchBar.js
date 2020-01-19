@@ -1,10 +1,10 @@
 import React from "react";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Carousel from "react-material-ui-carousel";
 import SearchBar from "material-ui-search-bar";
+import { useStyles } from './style'
 
 var items = [
   {
@@ -34,26 +34,7 @@ var items = [
   }
 ];
 
-const useStyles = makeStyles(theme => ({
-  carusel: {
-    margin: "auto",
-    display: "flex"
-  },
-  carouselImage: {
-    width: "100%"
-  },
-  wrapper: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
-  },
-  searchBar: {
-    position: "absolute",
-    minWidth: "100%",
-    paddingRight: "20%",
-    paddingLeft: "20%"
-  }
-}));
+
 
 export default function SearchBarr(props) {
   const classes = useStyles();
@@ -68,6 +49,7 @@ export default function SearchBarr(props) {
           {items.map(item => {
             return (
               <img
+              key={Math.random(Math.floor)*100000000}
                 src={item.src}
                 alt={item.description}
                 className={classes.carouselImage}

@@ -1,5 +1,5 @@
 import React from "react";
-import { loadFavorites } from "../favorite/action";
+import { loadFavorites } from "../../favorite/action";
 import { connect } from "react-redux";
 import FavoritesList from "./FavoritesList";
 

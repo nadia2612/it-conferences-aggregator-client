@@ -2,29 +2,16 @@ import React from "react";
 import Popover from "@material-ui/core/Popover";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { Link } from "react-router-dom";
-import { formatDate } from "../util/date-util";
+import { formatDate } from "../../util/date-util";
+import { useStyles } from './style'
 
-const useStyles = makeStyles(theme => ({
-  marker: {
-    cursor: "pointer",
-    position: "relative",
-    bottom: "10px",
-    right: "12px"
-  },
-  card: {
-    maxWidth: 345
-  },
-  media: {
-    height: 140
-  }
-}));
+
 
 export default function ConferenceMarker(props) {
   const classes = useStyles();

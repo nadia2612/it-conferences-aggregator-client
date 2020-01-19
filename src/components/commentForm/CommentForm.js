@@ -4,31 +4,10 @@ import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useStyles } from './style';
 
-const useStyles = makeStyles(theme => ({
-  form: {
-    dispaly:"flex",
-    width: "100%",
-    marginTop: theme.spacing(3),
-    justifyContent:"center",
 
-  },
-  submit: {
-    dispaly:"flex",
-    maxWidth:"50%",
-    width:"100%",
-    margin: theme.spacing(3, 0, 2),
-    textDecoration: "none"
-  },
-  textField: {
-    marginBottom:"20px",
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200
-  }
-}));
 
 export default function CommentForm(props) {
   const classes = useStyles();
